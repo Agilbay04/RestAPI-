@@ -1,4 +1,4 @@
-# Praktikum 4 RestAPI-
+# Praktikum 4 RestAPI dengan Codeigniter
 *Sumber:* https://www.codepolitan.com/rest-api-server-sederhana-dengan-codeigniter-58901f324a29f
 
 ### REST
