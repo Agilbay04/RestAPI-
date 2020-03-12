@@ -12,10 +12,15 @@ class Kontak extends REST_Controller {
         $this->load->database();
     }
 
-    // Menampilkan data kontak
-    // GET Function 
-    // Metode GET menyediakan akses baca pada sumber daya yang disediakan oleh REST API. 
-    // Sebagai contohnya digunakan untuk membaca data dari tabel telepon pada database kontak.
+    /*
+    |-----------------------------------------------------------------------------------------
+    | Menampilkan data Kontak
+    |-----------------------------------------------------------------------------------------
+    | GET Function 
+    | Metode GET menyediakan akses baca pada sumber daya yang disediakan oleh REST API. 
+    | Sebagai contohnya digunakan untuk membaca data dari tabel telepon pada database kontak.
+    */
+    
     function index_get() {
         $id = $this->get('id');
         if ($id == '') {
@@ -27,10 +32,15 @@ class Kontak extends REST_Controller {
         $this->response($kontak, 200);
     }
 
-    // Mengirim atau menambah data kontak baru
-    // POST Function 
-    // Metode POST digunakan untuk mengirimkan data baru dari client ke server REST API. 
-    // Sebagai contohnya digunakan untuk menambahkan kontak baru yang terdiri dari id, nama, dan nomor.
+    /*
+    |-----------------------------------------------------------------------------------------
+    | Menambah data kontak baru
+    |-----------------------------------------------------------------------------------------
+    | POST Function 
+    | Metode POST digunakan untuk mengirimkan data baru dari client ke server REST API. 
+    | Sebagai contohnya digunakan untuk menambahkan kontak baru yang terdiri dari id, nama, 
+    | dan nomor.
+    */ 
     function index_post() {
         $data = array(
                     'id'           => $this->post('id'),
@@ -44,10 +54,15 @@ class Kontak extends REST_Controller {
         }
     }
 
-    // Memperbarui data kontak yang telah ada
-    // PUT Function 
-    // Metode PUT digunakan untuk memperbarui data yang telah ada di server REST API. 
-    // Sebagai contohnya digunakan untuk memperbarui data dengan id 88 pada tabel telepon database kontak.
+    /*
+    |-----------------------------------------------------------------------------------------
+    | Mengedit data kontak
+    |-----------------------------------------------------------------------------------------
+    | PUT Function 
+    | Metode PUT digunakan untuk memperbarui data yang telah ada di server REST API. 
+    | Sebagai contohnya digunakan untuk memperbarui data dengan id 88 pada tabel telepon 
+    | database kontak.
+    */
        function index_put() {
         $id = $this->put('id');
         $data = array(
@@ -62,11 +77,16 @@ class Kontak extends REST_Controller {
             $this->response(array('status' => 'fail', 502));
         }
     }
-
-    //Menghapus salah satu data kontak
-    // DELETE Function
-    // Metode DELETE digunakan untuk menghapus data yang telah ada di server REST API. 
-    // Sebagai contohnya digunakan untuk menghapus data dengan id 1 pada tabel telepon database kontak.
+    
+    /*
+    |-----------------------------------------------------------------------------------------
+    | Menghapus data di table kontak
+    |-----------------------------------------------------------------------------------------
+    | DELETE Function
+    | Metode DELETE digunakan untuk menghapus data yang telah ada di server REST API. 
+    | Sebagai contohnya digunakan untuk menghapus data dengan id 1 pada tabel telepon 
+    | database kontak.
+    */
     function index_delete() {
         $id = $this->delete('id');
         $this->db->where('id', $id);
