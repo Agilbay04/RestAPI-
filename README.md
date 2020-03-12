@@ -1,7 +1,7 @@
 # Praktikum 4 RestAPI-
 *Sumber:* https://www.codepolitan.com/rest-api-server-sederhana-dengan-codeigniter-58901f324a29f
 
-## REST
+### REST
   Singkatan dari bahasa inggris dari *Representational Stae Transfer*, adalah suatu gaya arsitektur perangkat lunak untuk pendistribusian sistem hipermedia seperti *www.* Di perkenalkan pertama kali pada tahun 2000 pada disertasi doktoral roy fielding.
   Dalam penerapan REST pada Codeigniter diperlukan beberapa library tambahan yang tidak disediakan secara *default* pada Codeigniter.
 
