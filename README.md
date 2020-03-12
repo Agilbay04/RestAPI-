@@ -127,3 +127,43 @@ Untuk menguji kode tersebut buka Postman, pilih metode GET, masukkan *http://127
 Untuk mengujinya buka Postman, pilih metode POST, masukan *http://127.0.0.1/rest_ci/index.php/kontak* pada address bar, klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key dan value yang diperlukan (id, nama, nomor), lalu klik "Send".
 
 # PUT
+  Metode PUT digunakan untuk memperbarui atau mengedit data yang ada diserver REST API.
+```
+//Memperbarui data kontak yang telah ada
+    function index_put() {
+        $id = $this->put('id');
+        $data = array(
+                    'id'       => $this->put('id'),
+                    'nama'          => $this->put('nama'),
+                    'nomor'    => $this->put('nomor'));
+        $this->db->where('id', $id);
+        $update = $this->db->update('telepon', $data);
+        if ($update) {
+            $this->response($data, 200);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
+
+//Masukan function selanjutnya disini
+```
+Untuk mengujinya buka Postman, pilih metode PUT, masukan *http://127.0.0.1/rest_ci/index.php/kontak* pada address bar, klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key id dan value id yang akan diubah (88) diikuti key dan value selanjutnya, lalu klik "Send".
+
+# DELETE
+  Metode DELETE digunakan untuk menghapus data yang telah ada di REST API.
+berikut fungsinya taruh didalam controller kontak.php.
+```
+Menghapus salah satu data kontak
+    function index_delete() {
+        $id = $this->delete('id');
+        $this->db->where('id', $id);
+        $delete = $this->db->delete('telepon');
+        if ($delete) {
+            $this->response(array('status' => 'success'), 201);
+        } else {
+            $this->response(array('status' => 'fail', 502));
+        }
+    }
+```
+Untuk mengujinya buka Postman, pilih metode DELETE, masukan *http://127.0.0.1/rest_ci/index.php/kontak* pada address bar, klik "Body" pada menu dibawah address bar, pilih x-www-form-urlencoded, masukan key id dan value id yang akan dihapus (88), lalu klik "Send".
+  
